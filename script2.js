@@ -8,12 +8,28 @@ const  PersoneMovieTV ={
     genres: [],
     private: true
 };
-const a =  prompt('Один з останніх переглянутих фільмів',''),
-    b = prompt('Як ви його оціните?',''),
-    c =  prompt('Один з останніх переглянутих фільмів',''),
-    d = prompt('Як ви його оціните?', "");
 
-PersoneMovieTV.movies[a] = b;
-PersoneMovieTV.movies[c] = d;
+for(let i = 0; i < 2; i++) {
+    const a =  prompt('Один з останніх переглянутих фільмів',''),
+        b = prompt('Як ви його оціните?','');
+    if (a != null && b!= null && a != '' && b != '' && a.length < 50 ) {
+        PersoneMovieTV.movies[a] = b;
+        console.log("done");
+    } else {
+        console.log("Error");
+        i--;
+    }
 
+}
+
+if(PersoneMovieTV.count < 10){
+    console.log('Переглянуто мало фільмів!')
+} else if (PersoneMovieTV.count >= 10 && PersoneMovieTV.count < 30) {
+    console.log("Ви класичний глядач!")
+} else if (PersoneMovieTV.count >= 30) {
+    console.log("Ви кіноман!");
+} else {
+    console.log("Сталася помилка!")
+}
 console.log(PersoneMovieTV);
+
